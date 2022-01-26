@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class PlantTabAdapter(fragmentActivity: FragmentActivity):
+class MainTabAdapter(fragmentActivity: FragmentActivity):
     FragmentStateAdapter(fragmentActivity) {
 
     var plantFragmentList = listOf<Fragment>()
