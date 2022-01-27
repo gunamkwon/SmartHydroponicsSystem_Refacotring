@@ -2,9 +2,8 @@ package com.example.smarthydroponicssystem
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.smarthydroponicssystem.databinding.ActivityMainBinding
-import com.example.smarthydroponicssystem.util.PlantTabAdapter
+import com.example.smarthydroponicssystem.util.MainTabAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val fragmentList = listOf(ConnectionFragment(), ControlSystemFragment(), SelectPlantFragment())
+        val fragmentList = listOf(ConnectionFragment(), ControlSystemFragment(), PlantFragment())
 
-        val adapter = PlantTabAdapter(this)
+        val adapter = MainTabAdapter(this)
         adapter.plantFragmentList = fragmentList
         binding.mainViewPager.adapter = adapter
     }
