@@ -40,8 +40,17 @@ class SensorStatusFragment: Fragment() {
 
         binding.waterSensorStatus.btnStatusDetail.setOnClickListener {
 
-            //binding.waterSensorStatus.itemCardView.addView(createDetailInfo())
+            binding.waterSensorStatus.itemCardView.addView(createDetailInfo())
         }
+    }
+
+    private fun createDetailInfo(): View? {
+/*
+        val constraintLayout = ConstraintLayout(requireContext()). apply {
+            //layoutParams = ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.)
+        }
+*/
+        return null
     }
 
 }
