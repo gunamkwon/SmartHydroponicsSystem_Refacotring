@@ -27,7 +27,7 @@ class PlantFragment: Fragment() {
     }
 
     private fun initRecyclerView() {
-        val adapter = PlantAdapter()
+        val adapter = PlantAdapter(requireContext())
         binding.plantRecyclerView.apply {
             adapter.apply {
                 val list = listOf(

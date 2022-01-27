@@ -1,14 +1,22 @@
 package com.example.smarthydroponicssystem.util
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.example.smarthydroponicssystem.MainActivity
+import com.example.smarthydroponicssystem.PlantDetailActivity
 import com.example.smarthydroponicssystem.databinding.ItemPlantBinding
 import com.example.smarthydroponicssystem.model.Plant
 
 
-class PlantAdapter: RecyclerView.Adapter<PlantAdapter.PlantViewHolder>() {
+class PlantAdapter(context: Context): RecyclerView.Adapter<PlantAdapter.PlantViewHolder>() {
 
+    val mContext: Context = context
     val plantList = mutableListOf<Plant>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlantViewHolder {
@@ -17,7 +25,7 @@ class PlantAdapter: RecyclerView.Adapter<PlantAdapter.PlantViewHolder>() {
 
     override fun onBindViewHolder(holder: PlantViewHolder, position: Int) {
         val item = plantList[position]
-        holder.bind(item)
+        holder.bind(item, mContext)
     }
 
     override fun getItemCount(): Int {
@@ -27,9 +35,16 @@ class PlantAdapter: RecyclerView.Adapter<PlantAdapter.PlantViewHolder>() {
 
     class PlantViewHolder private constructor(val binding: ItemPlantBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Plant) {
+        fun bind(item: Plant, context: Context) {
             binding.plantCardImage.setImageResource(item.image)
             binding.plantText.text = item.name
+
+            itemView.setOnClickListener {
+                Intent(context, PlantDetailActivity::class.java).apply {
+                    putExtra("item", item)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }.run {context.startActivity(this)}
+            }
         }
 
         companion object {
