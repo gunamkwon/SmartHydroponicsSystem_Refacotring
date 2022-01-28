@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val fragmentList = listOf(ConnectionFragment(), ControlSystemFragment(), SelectPlantFragment())
+        val fragmentList = listOf(SelectPlantFragment(), ControlSystemFragment(), ConnectionFragment())
 
         val adapter = PlantTabAdapter(this)
         adapter.plantFragmentList = fragmentList

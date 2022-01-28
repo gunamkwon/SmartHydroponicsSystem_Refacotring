@@ -10,8 +10,6 @@ class PlantTabAdapter(fragmentActivity: FragmentActivity):
 
     var plantFragmentList = listOf<Fragment>()
 
-    class PlantViewHolder()
-
     override fun getItemCount(): Int {
         return plantFragmentList.size
     }
