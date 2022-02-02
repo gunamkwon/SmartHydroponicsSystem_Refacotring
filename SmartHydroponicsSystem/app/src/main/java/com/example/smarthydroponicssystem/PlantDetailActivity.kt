@@ -1,10 +1,8 @@
 package com.example.smarthydroponicssystem
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import com.example.smarthydroponicssystem.databinding.ActivityPlantDetailBinding
 import com.example.smarthydroponicssystem.model.Plant
 
@@ -18,8 +16,22 @@ class PlantDetailActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        initViewByIntentData()
+    }
 
-        Log.d("PlantDetailActivity", "${intent.getParcelableExtra<Plant>("item")?.name}")
+    private fun initViewByIntentData() {
+        val plantData = intent.getParcelableExtra<Plant>("item")
+        Log.d(TAG, "Intent_PlantData: ${plantData}")
 
+        plantData?.let{
+            binding.plantName.text = it?.name
+            binding.plantBarImage.setImageResource(it.image)
+            binding.plantInformation.text = it.information
+            binding.plantTdsInfo.text = "${it?.minTDS}mg/L ~ ${it?.maxTDS}mg/L"
+        }
+    }
+
+    companion object {
+        private const val TAG = "PlantDetailActivity"
     }
 }
