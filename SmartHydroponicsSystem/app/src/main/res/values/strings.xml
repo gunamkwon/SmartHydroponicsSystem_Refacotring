@@ -5,4 +5,5 @@
     <string name="connection_control">연결 관리</string>
     <string name="lettuce">상추</string>
     <string name="tds_title">적정 TDS 농도</string>
+    <string name="plant_image_description">식물 이미지</string>
 </resources>

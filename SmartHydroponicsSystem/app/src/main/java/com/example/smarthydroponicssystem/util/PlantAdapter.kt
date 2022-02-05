@@ -4,11 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
-import com.example.smarthydroponicssystem.MainActivity
 import com.example.smarthydroponicssystem.PlantDetailActivity
 import com.example.smarthydroponicssystem.databinding.ItemPlantBinding
 import com.example.smarthydroponicssystem.model.Plant
@@ -49,7 +45,7 @@ class PlantAdapter(context: Context): RecyclerView.Adapter<PlantAdapter.PlantVie
 
         companion object {
             fun from(parent: ViewGroup): PlantViewHolder {
-                val binding = ItemPlantBinding.inflate(LayoutInflater.from(parent.context))
+                val binding = ItemPlantBinding.inflate(LayoutInflater.from(parent.context),parent,false)
                 return PlantViewHolder(binding)
             }
         }
