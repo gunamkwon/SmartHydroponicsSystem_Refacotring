@@ -21,7 +21,7 @@ class ConnectionFragment: Fragment() {
         binding = FragmentControlSystemBinding.inflate(inflater, container, false)
 
 
-        val fragmentList = listOf(SensorStatusFragment(), SensorStatusFragment())
+        val fragmentList = listOf(SensorStatusFragment(), SensorControlFragment())
         val adapter = PlantTabAdapter(requireActivity())
         adapter.plantFragmentList = fragmentList
 
